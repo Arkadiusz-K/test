@@ -8,19 +8,18 @@ import java.util.Map;
 @Service
 public class SimpleCalculatorService {
 
-    public Map<String, Double> add(double a, double b) {
-        double result = a + b;
+    public Map<String, Double> add(double val1, double val2) {
+        double sum = val1 + val2;
         return new HashMap<>(
-                Map.of("value", result)
+                Map.of("value", sum)
         );
     }
 
-    public Map<String, Double> divide(double a, double b) throws ArithmeticException {
-        if (b == 0) {
+    public Map<String, Double> divide(double val1, double val2) throws ArithmeticException {
+        if (val2 == 0) {
             throw new ArithmeticException("cannot be divided by zero");
         }
-        double result = a / b;
-        return new HashMap<>(Map.of("value", result)
-        );
+        double quotient = val1 / val2;
+        return new HashMap<>(Map.of("value", quotient));
     }
 }
