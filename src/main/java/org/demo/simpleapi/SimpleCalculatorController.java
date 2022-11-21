@@ -24,11 +24,11 @@ public class SimpleCalculatorController {
         return simpleCalculatorService.add(valuesEntity.getVal1(), valuesEntity.getVal2());
     }
 
-    @GetMapping(path = "/div/{val1}/{val2}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/div", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Map<String, Double> divide(
-            @PathVariable("val1") double val1,
-            @PathVariable("val2") double val2) {
+            @RequestParam("val1") double val1,
+            @RequestParam("val2") double val2) {
         try {
             return simpleCalculatorService.divide(val1, val2);
         } catch (ArithmeticException arithmeticException) {
